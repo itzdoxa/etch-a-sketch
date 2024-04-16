@@ -12,3 +12,17 @@ function createDivs(){
     }
  };
  createDivs();
+
+ let currentDiv = null;
+
+ container.addEventListener('mouseover', function(event) {
+     if (currentDiv) return;
+     let target = event.target;
+     if (!target) return;
+     if (!container.contains(target)) return;
+     onEntery(target);
+ });
+
+ function onEntery(element){
+  element.style.background = "pink";
+ };
