@@ -1,28 +1,43 @@
-
+const create = document.querySelector(".create");
 const container = document.querySelector("#container");
-function createDivs(){
-    let num = prompt();
-    let size = 960/num;
-    for(let i = 0; i < num * num; i++) {
-    const div = document.createElement("div");
-    div.style.height = size + "px";
-    div.style.width = size + "px";
-    div.classList.add("box");
-    container.appendChild(div);
-    }
- };
- createDivs();
 
- let currentDiv = null;
+let num;
+create.addEventListener('click', function(){
+     num = prompt("number of squares per side");
 
- container.addEventListener('mouseover', function(event) {
-     if (currentDiv) return;
-     let target = event.target;
-     if (!target) return;
-     if (!container.contains(target)) return;
-     onEntery(target);
- });
+     if(num > 100) {
+         alert("input should be less than 100");
+         return;
+     }      
+     else {
+        removeGrid();
+        createGrid();
+     }
+});
 
- function onEntery(element){
-  element.style.background = "pink";
- };
+function createGrid(){
+
+      let divSize = 960/num; 
+        for(let i = 0; i < num * num; i++) {
+           const div = document.createElement("div");
+           div.style.height = divSize + "px";
+           div.style.width = divSize + "px";
+           div.classList.add("box");
+           container.appendChild(div);
+        };
+
+    container.addEventListener('mouseover', function(event) {
+         let currentDiv = event.target;
+         onEntry(currentDiv);
+      });
+
+     function onEntry(element){
+        element.style.background = "pink";
+     };
+};
+
+function removeGrid() {
+  while (container.firstChild) {
+      container.removeChild(container.firstChild);
+  }
+};
