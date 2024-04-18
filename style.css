@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
 }
-#container {
+.container {
     display: flex;
     width: 960px;
     height: 960px;
@@ -10,5 +10,5 @@ body {
     outline: solid green;
  }
  .box {
-  outline: 0.1px solid red;
+    outline: 0.1px solid red;
 }
