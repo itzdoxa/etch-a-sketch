@@ -4,11 +4,9 @@ body {
 }
 .container {
     display: flex;
-    width: 960px;
-    height: 960px;
+    width: 780px;
+    height: 780px;
     flex-wrap: wrap;
     outline: solid green;
  }
- .box {
-    outline: 0.1px solid red;
-}
+ 
