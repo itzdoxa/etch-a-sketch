@@ -2,16 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>etch a sketch</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div><button class="create">create new grid</button> 
-         <button class="random-color">random colors</button>
-         <button class="eraser">eraser</button>
-         <button class="black">black</button>
-         <input type="color" name="color picker" id="color-picker"/>
-   </div>
+    <h1>ETCH A SKETCH</h1>
+    <div id="menu">
+        <div id="color-modes">
+            <button class="create">Create New Grid</button> 
+            <div>
+                <label>Pick a color</label>
+                <input type="color" name="color picker" id="color-picker"/>             
+            </div> 
+            <div>
+               <label>Canvas Color</label>
+               <input type="color" id="canvas-color"/>             
+            </div>
+            <button class="eraser">Eraser</button>
+            <button class="random-color">Random Colors</button>
+            <button class="black">Black Pen</button>         
+       </div>
+    </div> 
 </body>
 </html>

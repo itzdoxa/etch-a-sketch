@@ -1,12 +1,14 @@
 const createBtn = document.querySelector(".create");
+const menu = document.querySelector("#menu");
 const container = document.createElement("div");
 const eraser = document.querySelector(".eraser")
 const random = document.querySelector(".random-color");
 const colorPicker = document.querySelector("#color-picker");
+const canvasColor = document.querySelector("#canvas-color");
 const black = document.querySelector(".black");
 
 container.classList.add("container");
-document.body.appendChild(container);
+menu.appendChild(container);
 
 let num;
 createBtn.addEventListener('click', function(){
@@ -22,11 +24,12 @@ createBtn.addEventListener('click', function(){
 
 let div;
 function createGrid(){
-  let divSize = 780/num; 
+  let divSize = 700/num; 
     for(let i = 0; i < num * num; i++) {
        div = document.createElement("div");
        div.style.height = divSize + "px";
        div.style.width = divSize + "px";
+       div.classList.add("box");
        container.appendChild(div);
     };     
 };
@@ -43,6 +46,8 @@ let colorMode = "default";
 container.addEventListener('mouseover', function(event) {
    if(container.firstChild) {
       currentDiv = event.target;
+   //   if (!container.contains(currentDiv)) return;
+
           if(colorMode == "default") {
                currentDiv.style.background = "black";
           }
@@ -64,6 +69,10 @@ function randomColor(){
    let blue = Math.ceil(Math.random()*255);
    return rgbValue = `rgb(${red}, ${green}, ${blue})`;
 };
+
+canvasColor.addEventListener('input', function(){
+      container.style.backgroundColor = canvasColor.value;
+});
 
 eraser.addEventListener('click', function(){
         colorMode = "erase";
