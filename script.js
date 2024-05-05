@@ -44,24 +44,23 @@ let currentDiv;
 let rgbValue;
 let colorMode = "default";
 container.addEventListener('mouseover', function(event) {
-   if(container.firstChild) {
-      currentDiv = event.target;
-   //   if (!container.contains(currentDiv)) return;
+   if (container.firstChild) {
+       currentDiv = event.target;
 
-          if(colorMode == "default") {
+     if (!currentDiv.classList.contains("box")) return;
+       else {
+           if (colorMode == "default") {
                currentDiv.style.background = "black";
-          }
-          else if(colorMode == "random"){
+           } else if (colorMode == "random") {
                currentDiv.style.background = randomColor();
-          }
-          else if(colorMode == "erase"){
+           } else if (colorMode == "erase") {
                currentDiv.style.background = "";
-          }
-          else if(colorMode == "colorPicker"){
+           } else if (colorMode == "colorPicker") {
                currentDiv.style.background = colorPicker.value;
-          };
-    };      
- });
+           }
+       }
+   }
+});
 
 function randomColor(){
    let red = Math.ceil(Math.random()*255);
@@ -71,9 +70,8 @@ function randomColor(){
 };
 
 canvasColor.addEventListener('input', function(){
-      container.style.backgroundColor = canvasColor.value;
+   container.style.backgroundColor = canvasColor.value;
 });
-
 eraser.addEventListener('click', function(){
         colorMode = "erase";
  });
