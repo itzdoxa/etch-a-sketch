@@ -12,7 +12,7 @@ menu.appendChild(container);
 
 let num;
 createBtn.addEventListener('click', function(){
-   num = prompt("number of squares per side");
+   num = prompt("number of squares per side, should be less than 100");
       if(num > 100) {
         return alert("input should be less than 100");
        }      
